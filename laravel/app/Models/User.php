@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\Pagamento;
+use App\Models\Recebimento;
 
 class User extends Authenticatable
 {
@@ -33,5 +34,10 @@ class User extends Authenticatable
     public function pagamentos()
     {
         return $this->hasMany(Pagamento::class);
+    }
+
+    public function recebimentos()
+    {
+        return $this->hasMany(Recebimento::class);
     }
 }

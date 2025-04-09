@@ -3,10 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Pagamento;
 use App\Models\Parcela;
-use App\Models\User;
 
-class Pagamento extends Model
+class Recebimento extends Model
 {
     public function user()
     {
@@ -18,20 +18,22 @@ class Pagamento extends Model
         return $this->morphMany(Parcela::class, 'parcelavel');
     }
 
-    protected $table = 'pagamento';
+    protected $table = 'recebimento';
     protected $primaryKey = 'id';
     public $timestamps = true;
+
     protected $fillable = [
         'descricao',
         'valor',
-        'data_pagamento',
+        'data_recebimento',
         'user_id'
     ];
+
     protected function casts()
     {
         return [
             'valor' => 'decimal:2',
-            'data_pagamento' => 'date'
+            'data_recebimento' => 'date'
         ];
     }
 }
